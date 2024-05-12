@@ -1,0 +1,82 @@
+<html>
+  <head>
+    <title>Password Manager</title>
+    <link rel="stylesheet" href="./temp.css">
+  </head>
+  <body>
+    <header>
+      <h2>Password Manager</h2>
+      <a href="/signout">Sign Out</a>
+    </header>
+    <main>
+      <h3>Saved Passwords</h3>
+      <table border="1">
+        <tbody>
+          <tr>
+            <th>Website</th>
+            <th>Username</th>
+            <th>Password</th>
+            <th>Action</th>
+          </tr>
+          <tr id="addCredentialsRow">
+            <td>
+              <input type="text" name="website" placeholder="Enter Website" required="">
+            </td>
+            <td>
+              <input type="text" name="username" placeholder="Enter Username" required="">
+            </td>
+            <td>
+              <input type="password" name="password" placeholder="Enter Password" required="">
+            </td>
+            <td>
+              <input type="submit" value="Add Credentials" onclick="addCredentials()">
+            </td>
+          </tr>
+          <tr>
+            <td>Instagram</td>
+            <td>pranayreddyambati</td>
+            <td class="password" onclick="togglePassword(this)" data-password="pass123$">*********</td>
+            <td><a href="/success/delete/0">Delete</a></td>
+          </tr>
+          <tr>
+            <td>Gmail</td>
+            <td>bobambati@gmail.com</td>
+            <td class="password" onclick="togglePassword(this)" data-password="qwerty123$&amp;">*********</td>
+            <td><a href="/success/delete/1">Delete</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </main>
+    <script>
+      function togglePassword(element) {
+        const currentType = element.getAttribute("data-original-type");
+
+        if (currentType === "password") {
+          element.innerHTML = element.getAttribute("data-password");
+          element.setAttribute("data-original-type", "text");
+        } else {
+          element.innerHTML = "*********";
+          element.setAttribute("data-original-type", "password");
+        }
+      }
+
+      function addCredentials() {
+        // Handle adding new credentials logic here
+        const website = document.querySelector('input[name="website"]').value;
+        const username = document.querySelector('input[name="username"]').value;
+        const password = document.querySelector('input[name="password"]').value;
+
+        // Add logic to append a new row with the entered credentials
+        const tableBody = document.querySelector('tbody');
+        const newRow = document.createElement('tr');
+        newRow.innerHTML = `
+          <td>${website}</td>
+          <td>${username}</td>
+          <td class="password" onclick="togglePassword(this)" data-password="${password}">*********</td>
+          <td><a href="/success/delete/${tableBody.children.length - 2}">Delete</a></td>
+        `;
+        tableBody.insertBefore(newRow, document.getElementById('addCredentialsRow'));
+      }
+    </script>
+  </body>
+</html>
