@@ -1,50 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Password Manager Project</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      margin: 0;
-      padding: 0;
-    }
-    h1, h2, h3 {
-      color: #333;
-    }
-    h1 {
-      text-align: center;
-    }
-    h2 {
-      color: #444;
-    }
-    ul {
-      list-style-type: none;
-      padding: 0;
-    }
-    li {
-      margin-bottom: 10px;
-    }
-    pre {
-      background-color: #f4f4f4;
-      padding: 10px;
-      border-radius: 5px;
-    }
-    code {
-      font-family: Consolas, monospace;
-    }
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 20px;
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <h1>Password Manager Project</h1>
+
+  <h1>Password Manager Project</h1>
     <h2>Overview</h2>
     <p>The Password Manager project provides a secure and convenient solution for managing and storing passwords. It offers functionalities for users to sign up, sign in, save, retrieve, and delete their credentials. The project utilizes encryption techniques to safeguard sensitive information and ensures proper session management for user authentication.</p>
     
