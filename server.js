@@ -3,21 +3,28 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const session = require('express-session');
+const dotenv = require("dotenv");
+
 
 const app = express();
+dotenv.config();
+
 const port = 5000;
+
+const username = process.env.MONGODB_USERNAME
+const password = process.env.MONGODB_PASSWORD
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
 // Use the session middleware
 app.use(session({
-  secret: '4vS6Kz9pR2q7fC8xW3bG1tY0uA5sD6fG',
+  secret: process.env.SESSION_KEY,
   resave: false,
   saveUninitialized: false
 }));
 
-mongoose.connect('mongodb://127.0.0.1:27017/password_manager');
+mongoose.connect(`mongodb+srv://${username}:${password}@cluster0.emib1rd.mongodb.net/passwordManagerDB`)
 
 // Define a mongoose schema for the user
 const userSchema = new mongoose.Schema({
